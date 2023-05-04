@@ -1,0 +1,19 @@
+/*
+    Hierarchy of the init process
+
+    init (root) - The main process that runs under the root UID
+     |            it is responsible for creating and managing workers
+     |            and also for processing requests from the user and forwarding them to the corresponding workers
+     |
+     +--init_worker (root) - Processes that require root privileges
+     |   |
+     |   +--...
+     +--init_worker (user) - Processes that require user privileges and are run under the user's UID
+     |   |                   at which each user is assigned a separate worker
+     |   +--...
+     +--...
+*/
+
+Settings(
+    listen: "/var/run/init.sock"
+)

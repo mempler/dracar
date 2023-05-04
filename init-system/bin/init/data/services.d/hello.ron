@@ -1,0 +1,12 @@
+Service(
+    description: "This is a test service",
+
+    scripts: (
+        start: Some(Exec(
+            command: "/bin/hello",
+            arguments: [ "world" ],
+        )),
+
+        stop: None,
+    ),
+)
